@@ -1,0 +1,34 @@
+<div class="box">
+  <article class="media">
+    <div class="media-left">
+      <figure class="image is-48x48">
+        <%= gravatar_image_tag(reply.user.email, class: 'border-radius-50', size: 48, alt: reply.user.username) %>
+      </figure>
+    </div>
+    <div class="media-content">
+      <div class="content">
+        <p>
+          <strong><%= reply.user.username %></strong> <small><%= time_ago_in_words(reply.created_at) %></small>
+          <br/>
+          <%= markdown(reply.reply) %>
+        </p>
+      </div>
+      <% if reply_author(reply) || current_user.admin? %>
+        <div class="level-left">
+          <a class="level-item">
+            <%= link_to edit_article_reply_path(reply.article, reply) do %>
+            <h1>Redaguoti komentara</h1>
+            <% end %>
+          </a>
+          <a class="level-item">
+            <%= link_to [reply.article, reply],
+                method: :delete, data: {confirm: "Are you sure ?" } do %>
+
+            <h1>Istrinti komentara</h1>
+            <% end %>
+          </a>
+        </div>
+      <% end %>
+    </div>
+  </article>
+</div>

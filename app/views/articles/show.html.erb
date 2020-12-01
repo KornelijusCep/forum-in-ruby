@@ -1,0 +1,38 @@
+<div class="columns">
+  <div class="column is-7 is-offset-1">
+    <h1 class="title is-2 has-text-grey discussion-title"><%= @article.title %></h1>
+    <h3 class="subtitle is-5 has-text-grey-lighter">by <%= @article.user.username %> in <%= link_to @article.channel.channel, @article.channel %></h3>
+    <div class="level">
+      <div class="level-left"></div>
+      <div class="level-right">
+        <% if article_author(@article) %>
+        <div class="buttons">
+            <%= link_to 'Redaguoti', edit_article_path(@article), class:'button'%>
+            <%= link_to 'Pasalinti', article_path(@article), method: :delete, data: { confirm: "Pasalinti straipsni" }, class:'button' %>
+        </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="content"><%= markdown(@article.content) %></div>
+
+    <h2 class="subtitle is-5 has-text-grey"><%= @article.replies.count %> Komentarai</h2>
+
+    <div id="article-replies">
+      <%= render @article.replies %>
+    </div>
+
+    
+
+    <h3 class="subtitle is-3 has-text-grey">Rasyti komentara:</h3>
+    <% if user_signed_in? %>
+      <%= render 'replies/form' %>
+    <% else %>
+    <p>Kad rasyti komentarus reikia <%= link_to 'login', new_user_session_path %>. Neturite paskyros?
+      <%= link_to 'Registruotis', new_user_registration_path %> galite cia</p>
+    <% end %>
+
+  </div>
+
+  <%= render 'sidebar' %>
+
+</div>
