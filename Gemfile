@@ -35,7 +35,7 @@ gem 'coderay'
 gem 'devise'
 gem 'gravatar_image_tag'
 gem 'redcarpet'
-gem 'rubocop'
+gem 'rubocop', require: false
 gem 'simple_form'
 
 group :development, :test do

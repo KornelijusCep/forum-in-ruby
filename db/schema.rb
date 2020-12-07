@@ -13,7 +13,8 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema.define(version: 20_201_129_213_053) do
-  create_table 'admins', options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci', force: :cascade do |t|
+  create_table 'admins', options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci',
+                         force: :cascade do |t|
     t.string 'email', default: '', null: false
     t.string 'encrypted_password', default: '', null: false
     t.integer 'sign_in_count', default: 0
@@ -28,7 +29,8 @@ ActiveRecord::Schema.define(version: 20_201_129_213_053) do
     t.datetime 'updated_at', precision: 6, null: false
   end
 
-  create_table 'articles', options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci', force: :cascade do |t|
+  create_table 'articles', options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci',
+                           force: :cascade do |t|
     t.string 'title'
     t.text 'content'
     t.datetime 'created_at', precision: 6, null: false
@@ -37,14 +39,16 @@ ActiveRecord::Schema.define(version: 20_201_129_213_053) do
     t.integer 'channel_id'
   end
 
-  create_table 'channels', options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci', force: :cascade do |t|
+  create_table 'channels', options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci',
+                           force: :cascade do |t|
     t.string 'channel'
     t.datetime 'created_at', precision: 6, null: false
     t.datetime 'updated_at', precision: 6, null: false
     t.integer 'article_id'
   end
 
-  create_table 'replies', options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci', force: :cascade do |t|
+  create_table 'replies', options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci',
+                          force: :cascade do |t|
     t.text 'reply'
     t.datetime 'created_at', precision: 6, null: false
     t.datetime 'updated_at', precision: 6, null: false
@@ -52,7 +56,8 @@ ActiveRecord::Schema.define(version: 20_201_129_213_053) do
     t.integer 'user_id'
   end
 
-  create_table 'users', options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci', force: :cascade do |t|
+  create_table 'users', options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci',
+                        force: :cascade do |t|
     t.string 'email', default: '', null: false
     t.string 'encrypted_password', default: '', null: false
     t.string 'reset_password_token'

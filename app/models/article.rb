@@ -7,4 +7,5 @@ class Article < ApplicationRecord
   has_many :replies, dependent: :destroy
 
   validates :title, presence: true, length: { minimum: 5 }
+  # validates :channel_id, not_nil: true
 end

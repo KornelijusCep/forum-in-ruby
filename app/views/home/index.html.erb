@@ -1,4 +1,13 @@
-<% name = current_user.present? ? current_user.username : 'Stranger'%>
-
-<h1>Welcome, <%= name %> </h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<div class="columns">
+  <div class="column is-half">
+    <h1 class="title is-1">Sveiki, <% name = current_user.present? ? current_user.username : 'nepazystamasis'%><%= name %> </h1>
+    <br>
+    <p class="subtitle is-3"> Cia mes turime ivairiu straipsniu kuriuos gali skaityti. Zinoma prisijungus gali juos rasyti ir TU!
+    <br> Prisijungus galesi issakyti nuomone apie kitu zmoniu rasytus straipsnius komentaru skilyje, taciau net jei 
+    ir persigalvosi zinoma galesi juos ir trinti ar redaguoti.</p>
+    <a href="/articles/new"><button class="button is-primary is-large">PRADEKITE RASYI STRAIPSNIUS JAU DABAR</button></a>
+  </div>
+  <div class="column has-background-light">
+    <img src="https://www.insidehighered.com/sites/default/server_files/styles/large/public/media/breaking%20down%20journal.jpg?itok=DSsQPvdE">
+  </div>
+</div>
